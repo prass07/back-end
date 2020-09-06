@@ -8,8 +8,8 @@ const db = knex({
         client: 'pg',
         connection: {
           host : '127.0.0.1',
-          user : 'prass',
-          password : '0327',
+          user : '',
+          password : '',
           database : 'myapp'
         }
       });
@@ -20,19 +20,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const database = {
-    users: [
-        {
-            id:'1',
-            username: 'john',
-            password: '123',
-        }
-    ]
-}
-
-app.get('/', (req,res)=>{
-    res.send(database.users);
-})
 
 app.post('/home',(req,res) => {
     if(req.body.username === 'admin' && req.body.password === 'pass'){
